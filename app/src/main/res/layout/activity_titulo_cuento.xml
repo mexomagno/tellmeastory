@@ -1,0 +1,79 @@
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/portadacuento"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="@dimen/boton_chico"
+        android:layout_height="@dimen/boton_chico"
+        android:text=""
+        android:id="@+id/button3"
+        android:background="@drawable/music"
+        android:layout_gravity="right" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/nombre_cuento1"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal"
+        android:padding="50dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="@dimen/boton_chico"
+            android:layout_height="@dimen/boton_chico"
+            android:id="@+id/imageView"
+            android:src="@drawable/ojo" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/texto_leertumismo"
+            android:id="@+id/button"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="@dimen/boton_chico"
+            android:layout_height="@dimen/boton_chico"
+            android:id="@+id/imageView2"
+            android:src="@drawable/oreja"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/texto_escuchar"
+            android:id="@+id/button2"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="@dimen/boton_chico"
+        android:layout_height="@dimen/boton_chico"
+        android:text=""
+        android:id="@+id/button5"
+        android:layout_gravity="bottom|right"
+        android:background="@drawable/exit"
+        android:onClick="accionBotonExit"/>
+
+</LinearLayout>

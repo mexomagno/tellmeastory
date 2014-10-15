@@ -1,0 +1,56 @@
+<!--
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/tabla_libros_horizontal_padding"
+    android:paddingRight="@dimen/tabla_libros_horizontal_padding"
+    android:paddingTop="@dimen/tabla_libros_vertical_padding"
+    android:paddingBottom="@dimen/tabla_libros_vertical_padding"
+    tools:context=".menu_cuentos">
+
+    <ExpandableListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/expandableListView"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
+-->
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@drawable/caracol"
+    android:padding="20dp"
+    android:gravity="center|top">
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="@dimen/boton_chico"
+        android:layout_height="@dimen/boton_chico"
+        android:text=""
+        android:id="@+id/button3"
+        android:background="@drawable/music"
+        android:layout_gravity="right" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/menu_title_string"
+        android:id="@+id/titulo_menu_cuentos"
+        android:padding= "@dimen/menu_title_padding"
+        android:editable="false"
+        android:background="#d0ffffff" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lista_libros"
+        android:layout_gravity="center_horizontal"
+        android:background="#c0ffffff"
+        android:layout_marginTop="20dp" />
+
+</LinearLayout>

@@ -1,0 +1,45 @@
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@drawable/pescao"
+    android:padding="20dp"
+    android:gravity="center_horizontal">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center">
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/app_name"
+        android:id="@+id/nombre_app"
+        android:padding= "@dimen/menu_title_padding"
+        android:editable="false"
+        android:background="#d0A9F5F2"
+        android:layout_marginBottom="50dp"
+        android:textSize="50dp"
+        android:textStyle="bold"
+        android:textColor="#440044"
+        android:layout_gravity="center"
+        android:gravity="center" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/boton_welcome_string"
+        android:id="@+id/boton_ver_libros"
+        android:layout_gravity="center_horizontal"
+        android:clickable="true"
+        android:onClick="accionBoton"/>
+
+
+</LinearLayout>
