@@ -12,6 +12,7 @@ public class TituloCuento extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        boolean continueMusic = true;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_titulo_cuento);
     }

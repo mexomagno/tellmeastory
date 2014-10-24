@@ -2,6 +2,7 @@ package com.buchef.proyecto1.tellmeastory;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +18,7 @@ public class menu_cuentos extends Activity {
     ListView lista_cuentos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        boolean continueMusic = true;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_cuentos);
         //obtener objeto lista de cuentos desde el xml

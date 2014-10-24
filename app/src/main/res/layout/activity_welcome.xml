@@ -6,7 +6,6 @@
     android:background="@drawable/pescao"
     android:padding="20dp"
     android:gravity="center_horizontal">
-
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
