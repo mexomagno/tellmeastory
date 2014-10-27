@@ -13,13 +13,13 @@ import android.content.Intent;
 public class welcome extends ActionBarActivity {
     boolean continueMusic;
 
-    @Override
+   /* @Override
     public boolean onKeyDown(int keyCode, KeyEvent event){
         if (keyCode == KeyEvent.KEYCODE_BACK){
             continueMusic = true;
         }
         return true;
-    }
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

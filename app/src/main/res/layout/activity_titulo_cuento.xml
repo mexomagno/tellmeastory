@@ -11,7 +11,7 @@
         android:layout_height="@dimen/boton_chico"
         android:text=""
         android:id="@+id/button3"
-        android:background="@drawable/music"
+        android:background="@drawable/sonido"
         android:layout_gravity="right" />
 
     <TextView

@@ -24,6 +24,9 @@ public class menu_cuentos extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         boolean continueMusic = true;
         sonido_on = true;
+        super.onCreate(savedInstanceState);
+        //obtener objeto boton desd el xml
+        setContentView(R.layout.activity_menu_cuentos);
         sonido = (Button) findViewById(R.id.bSonido);
         //Definir comportamiento de boton sonido
         sonido.setOnClickListener(new View.OnClickListener() {
@@ -33,16 +36,13 @@ public class menu_cuentos extends Activity {
                 if (sonido_on){
                     sonido_on = false;
                     sonido.setBackgroundResource(R.drawable.sonido_no);
-                //Quitando silencio
+                    //Quitando silencio
                 }else{
                     sonido_on = true;
                     sonido.setBackgroundResource(R.drawable.sonido);
                 }
             }
         });
-        super.onCreate(savedInstanceState);
-        //obtener objeto boton desd el xml
-        setContentView(R.layout.activity_menu_cuentos);
         //obtener objeto lista de cuentos desde el xml
         lista_cuentos = (ListView) findViewById(R.id.lista_libros);
         //definir arreglo con nombre de los elementos a mostrar
