@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;                             //para obtener el ListView del xml
 import android.widget.ArrayAdapter;                         //para usar el ArrayAdapter
 import android.widget.AdapterView.OnItemClickListener;      //para usar OnItemClickListener
@@ -16,10 +17,31 @@ import android.widget.Toast;
 
 public class menu_cuentos extends Activity {
     ListView lista_cuentos;
+    boolean sonido_on; //false si esta en esta en silencio
+    Button sonido;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         boolean continueMusic = true;
+        sonido_on = true;
+        sonido = (Button) findViewById(R.id.bSonido);
+        //Definir comportamiento de boton sonido
+        sonido.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Silenciando
+                if (sonido_on){
+                    sonido_on = false;
+                    sonido.setBackgroundResource(R.drawable.sonido_no);
+                //Quitando silencio
+                }else{
+                    sonido_on = true;
+                    sonido.setBackgroundResource(R.drawable.sonido);
+                }
+            }
+        });
         super.onCreate(savedInstanceState);
+        //obtener objeto boton desd el xml
         setContentView(R.layout.activity_menu_cuentos);
         //obtener objeto lista de cuentos desde el xml
         lista_cuentos = (ListView) findViewById(R.id.lista_libros);
@@ -67,4 +89,5 @@ public class menu_cuentos extends Activity {
     }
         return super.onOptionsItemSelected(item);
     }
+
 }
