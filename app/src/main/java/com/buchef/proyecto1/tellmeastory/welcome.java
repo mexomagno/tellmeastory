@@ -1,5 +1,7 @@
 package com.buchef.proyecto1.tellmeastory;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -11,7 +13,12 @@ import android.widget.Button;
 import android.content.Intent;
 
 public class welcome extends ActionBarActivity {
-    boolean continueMusic;
+    boolean music_on;
+    //Keys de configs
+    public static final String CONFIGS = "Configs";
+    public static final String MusicOn = "musicOnKey";
+    SharedPreferences configs;
+
 
    /* @Override
     public boolean onKeyDown(int keyCode, KeyEvent event){
@@ -25,6 +32,9 @@ public class welcome extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+
+        configs = getSharedPreferences(CONFIGS, Context.MODE_PRIVATE);
+        music_on = configs.getBoolean(MusicOn, true);
 
     }
     public void accionBoton(View view){

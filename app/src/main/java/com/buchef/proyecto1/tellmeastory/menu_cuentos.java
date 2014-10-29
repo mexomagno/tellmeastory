@@ -1,7 +1,9 @@
 package com.buchef.proyecto1.tellmeastory;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
@@ -18,16 +20,22 @@ import android.widget.Toast;
 public class menu_cuentos extends Activity {
     ListView lista_cuentos;
     boolean sonido_on; //false si esta en esta en silencio
+    SharedPreferences configs;
+
     Button sonido;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        boolean continueMusic = true;
-        sonido_on = true;
         super.onCreate(savedInstanceState);
-        //obtener objeto boton desd el xml
         setContentView(R.layout.activity_menu_cuentos);
+        //Recuperar configuracion guardada
+        configs = getSharedPreferences(welcome.CONFIGS, Context.MODE_PRIVATE);
+        sonido_on = configs.getBoolean(welcome.MusicOn, true);
+        //obtener objeto boton desd el xml
         sonido = (Button) findViewById(R.id.bSonido);
+        if (!sonido_on){ //Cambiar icono si venia en silencio
+            sonido.setBackgroundResource(R.drawable.sonido_no);
+        }
         //Definir comportamiento de boton sonido
         sonido.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,10 +44,17 @@ public class menu_cuentos extends Activity {
                 if (sonido_on){
                     sonido_on = false;
                     sonido.setBackgroundResource(R.drawable.sonido_no);
+                    SharedPreferences.Editor editor = configs.edit();
+                    editor.putBoolean(welcome.MusicOn, false);
+                    editor.apply();
+
                     //Quitando silencio
                 }else{
                     sonido_on = true;
                     sonido.setBackgroundResource(R.drawable.sonido);
+                    SharedPreferences.Editor editor = configs.edit();
+                    editor.putBoolean(welcome.MusicOn, true);
+                    editor.apply();
                 }
             }
         });

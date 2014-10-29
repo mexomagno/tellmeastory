@@ -1,5 +1,7 @@
 package com.buchef.proyecto1.tellmeastory;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,12 +11,44 @@ import android.widget.Button;
 
 
 public class TituloCuento extends ActionBarActivity {
+    boolean sonido_on; //false si esta en esta en silencio
+    SharedPreferences configs;
+
+    Button sonido;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        boolean continueMusic = true;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_titulo_cuento);
+
+        configs = getSharedPreferences(welcome.CONFIGS, Context.MODE_PRIVATE);
+        sonido_on = configs.getBoolean(welcome.MusicOn, true);
+        //Crear boton
+        sonido = (Button) findViewById(R.id.bSonido);
+        if (!sonido_on){
+            sonido.setBackgroundResource(R.drawable.sonido_no);
+        }
+        sonido.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Silenciando
+                if (sonido_on){
+                    sonido_on = false;
+                    sonido.setBackgroundResource(R.drawable.sonido_no);
+                    SharedPreferences.Editor editor = configs.edit();
+                    editor.putBoolean(welcome.MusicOn, false);
+                    editor.apply();
+
+                    //Quitando silencio
+                }else{
+                    sonido_on = true;
+                    sonido.setBackgroundResource(R.drawable.sonido);
+                    SharedPreferences.Editor editor = configs.edit();
+                    editor.putBoolean(welcome.MusicOn, true);
+                    editor.apply();
+                }
+            }
+        });
     }
 
 
