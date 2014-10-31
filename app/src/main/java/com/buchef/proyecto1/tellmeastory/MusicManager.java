@@ -11,16 +11,16 @@ import java.util.HashMap;
 /**
  * Created by Nosferath on 22-10-2014. Thanks to Robert Green.
  */
-public class MusicManager{
-private static final String TAG = "MusicManager";
-public static final int MUSIC_PREVIOUS = -1;
-public static final int MUSIC_MENU = 0;
-public static final int MUSIC_GAME = 1;
-public static final int MUSIC_END_GAME = 2;
+public class MusicManager {
+    private static final String TAG = "MusicManager";
+    public static final int MUSIC_PREVIOUS = -1;
+    public static final int MUSIC_MENU = 0;
+    public static final int MUSIC_GAME = 1;
+    public static final int MUSIC_END_GAME = 2;
 
-private static HashMap players = new HashMap();
-private static int currentMusic = -1;
-private static int previousMusic = -1;
+    private static HashMap players = new HashMap();
+    private static int currentMusic = -1;
+    private static int previousMusic = -1;
 
         /*public static float getMusicVolume(Context context) {
             String[] volumes = context.getResources().getStringArray(R.array.volume_values);

@@ -12,6 +12,7 @@ import android.widget.Button;
 
 public class TituloCuento extends ActionBarActivity {
     boolean sonido_on; //false si esta en esta en silencio
+    boolean continueMusic;
     SharedPreferences configs;
 
     Button sonido;
@@ -20,6 +21,7 @@ public class TituloCuento extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_titulo_cuento);
+        continueMusic = false;
 
         configs = getSharedPreferences(welcome.CONFIGS, Context.MODE_PRIVATE);
         sonido_on = configs.getBoolean(welcome.MusicOn, true);
@@ -34,6 +36,7 @@ public class TituloCuento extends ActionBarActivity {
                 //Silenciando
                 if (sonido_on){
                     sonido_on = false;
+                    MusicManager.release();
                     sonido.setBackgroundResource(R.drawable.sonido_no);
                     SharedPreferences.Editor editor = configs.edit();
                     editor.putBoolean(welcome.MusicOn, false);
@@ -42,6 +45,7 @@ public class TituloCuento extends ActionBarActivity {
                     //Quitando silencio
                 }else{
                     sonido_on = true;
+                    MusicManager.start(getApplicationContext(), MusicManager.MUSIC_GAME);
                     sonido.setBackgroundResource(R.drawable.sonido);
                     SharedPreferences.Editor editor = configs.edit();
                     editor.putBoolean(welcome.MusicOn, true);
@@ -74,5 +78,20 @@ public class TituloCuento extends ActionBarActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (!continueMusic) {
+            MusicManager.pause();
+        }
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        continueMusic = false;
+        if (sonido_on){
+            MusicManager.start(this, MusicManager.MUSIC_GAME);
+        }
     }
 }
