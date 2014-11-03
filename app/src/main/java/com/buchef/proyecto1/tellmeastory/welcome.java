@@ -30,6 +30,7 @@ public class welcome extends ActionBarActivity {
         Log.d(msg, "welcome onCreate"); // DEBUG
         configs = getSharedPreferences(CONFIGS, Context.MODE_PRIVATE);
         music_on = configs.getBoolean(MusicOn, true);
+        continueMusic = true;
 
     }
     @Override
@@ -43,6 +44,7 @@ public class welcome extends ActionBarActivity {
         continueMusic = false;
         if (music_on) {
             MusicManager.start(this, MusicManager.MUSIC_MENU);
+            Log.d(msg, "Music on status: " + music_on); // DEBUG
         }
         Log.d(msg, "welcome onResume"); // DEBUG
     }
