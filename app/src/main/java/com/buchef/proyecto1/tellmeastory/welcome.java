@@ -29,7 +29,6 @@ public class welcome extends ActionBarActivity {
         setContentView(R.layout.activity_welcome);
         Log.d(msg, "welcome onCreate"); // DEBUG
         configs = getSharedPreferences(CONFIGS, Context.MODE_PRIVATE);
-        music_on = configs.getBoolean(MusicOn, true);
         continueMusic = true;
 
     }
@@ -42,6 +41,7 @@ public class welcome extends ActionBarActivity {
     protected void onResume(){
         super.onResume();
         continueMusic = false;
+        music_on = configs.getBoolean(MusicOn, true);
         if (music_on) {
             MusicManager.start(this, MusicManager.MUSIC_MENU);
             Log.d(msg, "Music on status: " + music_on); // DEBUG
