@@ -21,15 +21,10 @@ public class TituloCuento extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_titulo_cuento);
+        
         continueMusic = false;
-
-        configs = getSharedPreferences(welcome.CONFIGS, Context.MODE_PRIVATE);
-        sonido_on = configs.getBoolean(welcome.MusicOn, true);
         //Crear boton
         sonido = (Button) findViewById(R.id.bSonido);
-        if (!sonido_on){
-            sonido.setBackgroundResource(R.drawable.sonido_no);
-        }
         sonido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,6 +85,11 @@ public class TituloCuento extends ActionBarActivity {
     protected void onResume() {
         super.onResume();
         continueMusic = false;
+        configs = getSharedPreferences(welcome.CONFIGS, Context.MODE_PRIVATE);
+        sonido_on = configs.getBoolean(welcome.MusicOn, true);
+        if (!sonido_on){
+            sonido.setBackgroundResource(R.drawable.sonido_no);
+        }
         if (sonido_on){
             MusicManager.start(this, MusicManager.MUSIC_GAME);
         }
