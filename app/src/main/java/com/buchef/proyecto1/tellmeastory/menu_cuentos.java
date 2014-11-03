@@ -141,8 +141,9 @@ public class menu_cuentos extends Activity {
         super.onPause();
         if (!continueMusic) {
             MusicManager.pause();
-            Log.d(msg, "menu_cuentos onPause"); // DEBUG
         }
+        Log.d(msg, "menu_cuentos onPause"); // DEBUG
+        
     }
     @Override
     protected void onStop(){
