@@ -69,9 +69,10 @@ public class menu_cuentos extends Activity {
         //obtener objeto lista de cuentos desde el xml
         lista_cuentos = (ListView) findViewById(R.id.lista_libros);
         //definir arreglo con nombre de los elementos a mostrar
-        String[] nombre_cuentos = new String[]{"Tel mi a stori!",
-                                                "Dont telmi nozing",
-                                                "such App, wow"};
+        String[] nombre_cuentos = new String[]{getResources().getString(R.string.cuento1),
+                                               getResources().getString(R.string.cuento2),
+                                               getResources().getString(R.string.cuento3),
+                                               getResources().getString(R.string.cuento4)};
         /* definir Adapter
         Parámetros: Contexto, layout para la fila, ID del textview hacia donde se escribe, el arreglo de los datos
         */
