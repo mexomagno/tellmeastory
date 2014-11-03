@@ -34,14 +34,6 @@ public class menu_cuentos extends Activity {
         setContentView(R.layout.activity_menu_cuentos);
         Log.d(msg, "menu_cuentos onCreate"); // DEBUG
         continueMusic = true;
-        //Recuperar configuracion guardada
-        configs = getSharedPreferences(welcome.CONFIGS, Context.MODE_PRIVATE);
-        sonido_on = configs.getBoolean(welcome.MusicOn, true);
-        //obtener objeto boton desd el xml
-        sonido = (Button) findViewById(R.id.bSonido);
-        if (!sonido_on){ //Cambiar icono si venia en silencio
-            sonido.setBackgroundResource(R.drawable.sonido_no);
-        }
         //Definir comportamiento de boton sonido
         sonido.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,6 +123,14 @@ public class menu_cuentos extends Activity {
     protected void onResume(){
         super.onResume();
         continueMusic = false;
+         //Recuperar configuracion guardada
+        configs = getSharedPreferences(welcome.CONFIGS, Context.MODE_PRIVATE);
+        sonido_on = configs.getBoolean(welcome.MusicOn, true);
+        //obtener objeto boton desd el xml
+        sonido = (Button) findViewById(R.id.bSonido);
+        if (!sonido_on){ //Cambiar icono si venia en silencio
+            sonido.setBackgroundResource(R.drawable.sonido_no);
+        }
         if (sonido_on) {
             MusicManager.start(this, MusicManager.MUSIC_MENU);
         }
