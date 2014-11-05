@@ -18,6 +18,8 @@ import android.widget.AdapterView.OnItemClickListener;      //para usar OnItemCl
 import android.view.View;
 import android.widget.Toast;
 
+import java.lang.reflect.Field;
+
 
 public class menu_cuentos extends Activity {
     ListView lista_cuentos;
@@ -63,10 +65,7 @@ public class menu_cuentos extends Activity {
         //obtener objeto lista de cuentos desde el xml
         lista_cuentos = (ListView) findViewById(R.id.lista_libros);
         //definir arreglo con nombre de los elementos a mostrar
-        String[] nombre_cuentos = new String[]{getResources().getString(R.string.cuento1),
-                                               getResources().getString(R.string.cuento2),
-                                               getResources().getString(R.string.cuento3),
-                                               getResources().getString(R.string.cuento4)};
+        String[] nombre_cuentos = getTitulosCuentos();
         /* definir Adapter
         Parámetros: Contexto, layout para la fila, ID del textview hacia donde se escribe, el arreglo de los datos
         */
@@ -79,15 +78,26 @@ public class menu_cuentos extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //posicion del item clickeado
                 int pos_item = position;
-                String valor_item = (String) lista_cuentos.getItemAtPosition(position);
+                String nombre_item = (String) lista_cuentos.getItemAtPosition(position);
                 //mostrar una alerta
                 //Toast.makeText(getApplicationContext(),"Posicion: "+pos_item+", Item: " + valor_item, Toast.LENGTH_LONG).show();
-                Intent myIntent = new Intent(getApplicationContext(),TituloCuento.class);
+                Intent myIntent = new Intent(getApplicationContext(),Cuento_con_paginas.class);
+                //Añadir parametros al activity, es decir, añadir nombre del cuento.
+                myIntent.putExtra("titulo",nombre_item);
                 menu_cuentos.this.startActivity(myIntent);
             }
         });
     }
-
+    public String [] getTitulosCuentos(){
+        Field[] fields=R.raw.class.getFields();
+        String []lista = new String[fields.length];
+        int index=0;
+        for(int count=0; count < fields.length; count++){
+            //Log.i("Raw Asset: ", fields[count].getName());
+            lista[index++]=fields[count].getName();
+        }
+        return lista;
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -104,7 +114,7 @@ public class menu_cuentos extends Activity {
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
-    }
+        }
         return super.onOptionsItemSelected(item);
     }
 

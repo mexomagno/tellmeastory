@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.buchef.proyecto1.tellmeastory" >
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/tigrecillo"
@@ -9,7 +10,7 @@
         <activity
             android:name=".welcome"
             android:label="@string/app_name"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,12 +20,16 @@
         <activity
             android:name=".menu_cuentos"
             android:label="@string/title_activity_welcome"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".TituloCuento"
             android:label="@string/title_activity_titulo_cuento"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name=".Cuento_con_paginas"
+            android:label="@string/title_activity_cuento_con_paginas" >
         </activity>
     </application>
 

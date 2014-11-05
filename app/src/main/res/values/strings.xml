@@ -17,6 +17,6 @@
     <string name="cuento2">Juanito y el huemul</string>
     <string name="cuento3">Jarri Weasley</string>
     <string name="cuento4">El patito fabuloso</string>
-
+    <string name="title_activity_cuento_con_paginas">Cuento_con_paginas</string>
 
 </resources>

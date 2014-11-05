@@ -1,10 +1,12 @@
 package com.buchef.proyecto1.tellmeastory;
 
 import android.content.Context;
+import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
 
@@ -55,6 +57,7 @@ public class MusicManager {
             currentMusic = music;
             Log.d(TAG, "Current music is now [" + currentMusic + "]");
             MediaPlayer mp = (MediaPlayer)players.get(music);
+            AssetFileDescriptor afd;
             if (mp != null) {
                 if (!mp.isPlaying()) {
                     mp.start();
