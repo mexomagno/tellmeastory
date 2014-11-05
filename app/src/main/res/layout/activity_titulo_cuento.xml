@@ -66,14 +66,4 @@
     </LinearLayout>
 
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="@dimen/boton_chico"
-        android:layout_height="@dimen/boton_chico"
-        android:text=""
-        android:id="@+id/button5"
-        android:layout_gravity="bottom|right"
-        android:background="@drawable/exit"
-        android:onClick="accionBotonExit"/>
-
 </LinearLayout>

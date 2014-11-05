@@ -56,12 +56,12 @@ public class TituloCuento extends ActionBarActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.titulo_cuento, menu);
         return true;
-    }
+    }/*
     public void accionBotonExit(View view){
         final Button boton = (Button) findViewById(R.id.boton_ver_libros);
         System.exit(0);
         finish();
-    }
+    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
