@@ -52,7 +52,7 @@ public class welcome extends ActionBarActivity {
     protected void onPause(){
         super.onPause();
         if (!continueMusic) {
-            MusicManager.pause();
+            MusicManager.release();
         }
         Log.d(msg, "welcome onPause"); // DEBUG
     }

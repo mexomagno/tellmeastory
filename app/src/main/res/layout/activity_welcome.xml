@@ -5,7 +5,8 @@
     android:orientation="vertical"
     android:background="@drawable/pescao"
     android:padding="20dp"
-    android:gravity="center_horizontal">
+    android:gravity="center_horizontal"
+    android:clickable="false">
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -38,7 +39,8 @@
         android:id="@+id/boton_ver_libros"
         android:layout_gravity="center_horizontal"
         android:clickable="true"
-        android:onClick="accionBoton"/>
+        android:onClick="accionBoton"
+        android:background="#d0A9F5F2" />
 
 
 </LinearLayout>

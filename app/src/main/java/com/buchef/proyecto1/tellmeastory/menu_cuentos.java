@@ -132,6 +132,7 @@ public class menu_cuentos extends Activity {
             sonido.setBackgroundResource(R.drawable.sonido_no);
         }
         if (sonido_on) {
+            sonido.setBackgroundResource(R.drawable.sonido);
             MusicManager.start(this, MusicManager.MUSIC_MENU);
         }
         Log.d(msg, "menu_cuentos onResume"); // DEBUG
@@ -140,7 +141,7 @@ public class menu_cuentos extends Activity {
     protected void onPause() {
         super.onPause();
         if (!continueMusic) {
-            MusicManager.pause();
+            MusicManager.release();
         }
         Log.d(msg, "menu_cuentos onPause"); // DEBUG
         

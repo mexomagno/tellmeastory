@@ -78,7 +78,7 @@ public class TituloCuento extends ActionBarActivity {
     protected void onPause() {
         super.onPause();
         if (!continueMusic) {
-            MusicManager.pause();
+            MusicManager.release();
         }
     }
     @Override
@@ -91,6 +91,7 @@ public class TituloCuento extends ActionBarActivity {
             sonido.setBackgroundResource(R.drawable.sonido_no);
         }
         if (sonido_on){
+            sonido.setBackgroundResource(R.drawable.sonido);
             MusicManager.start(this, MusicManager.MUSIC_GAME);
         }
     }
