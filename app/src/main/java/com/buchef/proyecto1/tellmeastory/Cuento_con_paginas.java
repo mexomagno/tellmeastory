@@ -2,37 +2,50 @@ package com.buchef.proyecto1.tellmeastory;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
+
+import java.util.List;
+import java.util.Vector;
 
 
-public class TituloCuento extends FragmentActivity {
+public class Cuento_con_paginas extends FragmentActivity {
+    //Variables internas
     boolean sonido_on; //false si esta en esta en silencio
     boolean continueMusic;
     SharedPreferences configs;
     private String titulo;
+    private PagerAdapter mPagerAdapter;
     Button sonido;
 
+    //Métodos
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Este layout debiera depender del título del cuento
-        setContentView(R.layout.activity_titulo_cuento);
-        
+        super.setContentView(R.layout.activity_cuento_con_paginas);
+        //inicializar fragments, páginas del cuento
+        this.initialisePaging();
         continueMusic = false;
+        //obtener titulo del cuento
+        titulo=getIntent().getStringExtra("titulo");
+        //Log.d("Cuento: ", "titulo del cuento: " + titulo);
         //Crear boton
         sonido = (Button) findViewById(R.id.bSonido);
         sonido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Silenciando
-                if (sonido_on){
+                if (sonido_on) {
                     sonido_on = false;
                     MusicManager.release();
                     sonido.setBackgroundResource(R.drawable.sonido_no);
@@ -41,7 +54,7 @@ public class TituloCuento extends FragmentActivity {
                     editor.apply();
 
                     //Quitando silencio
-                }else{
+                } else {
                     sonido_on = true;
                     MusicManager.start(getApplicationContext(), MusicManager.MUSIC_GAME);
                     sonido.setBackgroundResource(R.drawable.sonido);
@@ -53,18 +66,27 @@ public class TituloCuento extends FragmentActivity {
         });
     }
 
+    private void initialisePaging() {
+
+        List<Fragment> fragments = new Vector<Fragment>();
+        //Generar páginas del cuento
+        for (int i = 0; i < 10; i++) {
+            // Generar nuevo fragment para el arreglo
+            Fragment newfragment = PagFragment.newInstance(i);
+            fragments.add(newfragment);
+        }
+        this.mPagerAdapter = new com.buchef.proyecto1.tellmeastory.PagerAdapter(super.getSupportFragmentManager(), fragments);
+        //Obtener vista del pager
+        ViewPager pager = (ViewPager) super.findViewById(R.id.viewpager);
+        pager.setAdapter(this.mPagerAdapter);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.titulo_cuento, menu);
+        getMenuInflater().inflate(R.menu.cuento_con_paginas, menu);
         return true;
-    }/*
-    public void accionBotonExit(View view){
-        final Button boton = (Button) findViewById(R.id.boton_ver_libros);
-        System.exit(0);
-        finish();
-    }*/
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -77,13 +99,15 @@ public class TituloCuento extends FragmentActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     protected void onPause() {
         super.onPause();
         if (!continueMusic) {
-            MusicManager.release();
+            MusicManager.pause();
         }
     }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -94,7 +118,6 @@ public class TituloCuento extends FragmentActivity {
             sonido.setBackgroundResource(R.drawable.sonido_no);
         }
         if (sonido_on){
-            sonido.setBackgroundResource(R.drawable.sonido);
             MusicManager.start(this, MusicManager.MUSIC_GAME);
         }
     }

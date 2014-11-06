@@ -1,0 +1,84 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1342" measuredH="797" mockupW="1230" mockupH="775">
+  <controls>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Image" x="112" y="22" w="-1" h="-1" measuredW="1230" measuredH="775" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./Imagenes/Samsung%2520Galaxy%2520Tab.jpeg.png</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::Image" x="220" y="99" w="1014" h="588" measuredW="890" measuredH="609" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>20</size>
+        <src>./Imagenes/tell_me_a_story_by_strawonaberry.jpg</src>
+        <text>Foto%20tem%E1tica%20del%20cuento</text>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::Image" x="1158" y="119" w="52" h="77" measuredW="179" measuredH="265" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./Imagenes/corchea.png</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="9" controlTypeID="__group__" x="375" y="493" w="619" h="95" measuredW="619" measuredH="95" zOrder="5" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Button" x="90" y="11" w="529" h="73" measuredW="262" measuredH="73" zOrder="0" locked="false" isInGroup="9">
+          <controlProperties>
+            <color>16770457</color>
+            <size>60</size>
+            <text>Escuchar</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Image" x="0" y="0" w="90" h="95" measuredW="437" measuredH="462" zOrder="1" locked="false" isInGroup="9">
+          <controlProperties>
+            <src>./Imagenes/oreja.png</src>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="10" controlTypeID="__group__" x="463" y="372" w="640" h="91" measuredW="640" measuredH="91" zOrder="4" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Button" x="0" y="9" w="529" h="73" measuredW="405" measuredH="73" zOrder="0" locked="false" isInGroup="10">
+          <controlProperties>
+            <color>16770457</color>
+            <menuIcon>false</menuIcon>
+            <size>60</size>
+            <text>Leer%20t%FA%20mismo</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Image" x="529" y="0" w="111" h="91" measuredW="120" measuredH="98" zOrder="1" locked="false" isInGroup="10">
+          <controlProperties>
+            <src>./Imagenes/ojo.png</src>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::Image" x="1125" y="581" w="100" h="99" measuredW="500" measuredH="492" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./Imagenes/exit.png</src>
+      </controlProperties>
+    </control>
+    <control controlID="14" controlTypeID="__group__" x="399" y="165" w="657" h="140" measuredW="657" measuredH="140" zOrder="7" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::TextArea" x="98" y="0" w="485" h="140" measuredW="200" measuredH="140" zOrder="0" locked="false" isInGroup="14">
+          <controlProperties>
+            <backgroundAlpha>0.75</backgroundAlpha>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Title" x="0" y="28" w="657" h="-1" measuredW="393" measuredH="85" zOrder="1" locked="false" isInGroup="14">
+          <controlProperties>
+            <color>6684672</color>
+            <size>72</size>
+            <text>Telmi%20a%20stori</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="15" controlTypeID="com.balsamiq.mockups::TextArea" x="220" y="98" w="1014" h="595" measuredW="200" measuredH="140" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>0.5</backgroundAlpha>
+        <text/>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

@@ -12,4 +12,11 @@
     <string name="texto_leertumismo">Leer tú mismo</string>
     <string name="texto_escuchar">Escuchar</string>
 
+    <!-- listado de cuentos disponibles -->
+    <string name="cuento1">La caperucita beige</string>
+    <string name="cuento2">Juanito y el huemul</string>
+    <string name="cuento3">Jarri Weasley</string>
+    <string name="cuento4">El patito fabuloso</string>
+    <string name="title_activity_cuento_con_paginas">Cuento_con_paginas</string>
+
 </resources>

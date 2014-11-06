@@ -1,0 +1,25 @@
+***Requerimientos de cada cuento:
+
+Cada cuento debiera tener sus propios layouts, imágenes, texto y música.
+Todo esto debiera estar disponible en una carpeta por cuento, en un formato legible por la aplicación.
+-Acerca de los layouts:
+	Los layouts podrían ser genéricos para todos los cuentos, y parece ser el acercamiento más simple. En el futuro se pueden establecer layouts específicos para cada página.
+
+En lo posible, la aplicación al iniciar, debiera ser capaz de listar y abrir los cuentos con el solo hecho de tenerlos en alguna carpeta específica. 
+-Cosas que debieran tener en común entre los cuentos:
+*notita musical para silenciar música
+*Estructura básica de páginas
+*comportamiento de botones, swipe y demases
+*gráfica de botones
+-Cosas que debieran tener en común entre páginas:
+*notita musical
+
+-cosas que debieran ser únicas para cada cuento
+*texto de cada página
+*música
+*Foto de cada página y de título
+
+Versión 0.1 buscará:
+-1 sólo layout básico para todas las páginas
+-fotos y texto únicos para cada página, según cuento
+-capacidad de leer cuento desde directorio raíz de cuentos
