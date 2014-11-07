@@ -1,8 +1,5 @@
-title:Larry Porter y el camote filosófico
+title:Larry Porter y el lizard
 ----
-Había una vez un niño que era entero láji
-Se encontró una piedra, y se puso a pensar
-Pensó y pensó y no supo qué hacer con ella
-Finalmente vio pasar una patrulla de carabineros e hizo lo que todo ciudadano haría
-Larry se comió la piedra, y explotó.
-Fin.
+You're a lizard Larry!
+Ok
+Fin
