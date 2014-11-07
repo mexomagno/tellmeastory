@@ -2,6 +2,7 @@ package com.buchef.proyecto1.tellmeastory;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
@@ -14,30 +15,43 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.List;
+import java.util.Scanner;
 import java.util.Vector;
 
 
 public class Cuento_con_paginas extends FragmentActivity {
-    //Variables internas
+    //****Variables internas
+    //manejo de sonidos y música
     boolean sonido_on; //false si esta en esta en silencio
     boolean continueMusic;
-    SharedPreferences configs;
-    private String titulo;
-    private PagerAdapter mPagerAdapter;
     Button sonido;
+    SharedPreferences configs;
+    //Información del cuento
+    private static String titulo;
+    private static String archivo;
+    private int n_paginas;
+    private PagerAdapter mPagerAdapter;
 
-    //Métodos
+    //****Métodos
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Este layout debiera depender del título del cuento
         super.setContentView(R.layout.activity_cuento_con_paginas);
+        //obtener titulo del cuento
+        archivo=getIntent().getStringExtra("archivo");
+        titulo=obtenerTituloDesdeArchivo(archivo);
+        //obtener cuenta de paginas del cuento
+        n_paginas = obtenerNumeroPaginas(archivo);
         //inicializar fragments, páginas del cuento
         this.initialisePaging();
         continueMusic = false;
-        //obtener titulo del cuento
-        titulo=getIntent().getStringExtra("titulo");
+        //A partir del título, obtener el nombre del archivo
         //Log.d("Cuento: ", "titulo del cuento: " + titulo);
         //Crear boton
         sonido = (Button) findViewById(R.id.bSonido);
@@ -65,12 +79,45 @@ public class Cuento_con_paginas extends FragmentActivity {
             }
         });
     }
-
+    private String obtenerTituloDesdeArchivo(String archivo){
+        final Resources res = getResources();
+        InputStream is = res.openRawResource(res.getIdentifier(archivo,"raw",this.getPackageName()));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+        StringBuilder strb = new StringBuilder();
+        try {
+            String line;
+            while ((line = reader.readLine()) != null){
+                if (line.startsWith("title:")){
+                    reader.close();
+                    return line.substring(line.indexOf(':')+1);
+                }
+            }
+            return "Error: Archivo no tiene titulo!!!";
+        }
+        catch(IOException e){
+            return "EXCEPTION";
+        }
+    }
+    private int obtenerNumeroPaginas(String archivo){
+        Resources res = getResources();
+        Scanner br = new Scanner(res.openRawResource(res.getIdentifier(archivo,"raw",this.getPackageName())));//new InputStreamReader(fstream));
+        int count=0;
+        boolean contando=false;
+        while (br.hasNext()) {
+            String linea = br.nextLine();
+            if (linea.startsWith("----"))
+                contando = true;
+            if (contando && (linea.length()>0))
+                count++;
+        }
+        br.close();
+        return count;
+    }
     private void initialisePaging() {
-
+        //
         List<Fragment> fragments = new Vector<Fragment>();
         //Generar páginas del cuento
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < n_paginas; i++) {
             // Generar nuevo fragment para el arreglo
             Fragment newfragment = PagFragment.newInstance(i);
             fragments.add(newfragment);
