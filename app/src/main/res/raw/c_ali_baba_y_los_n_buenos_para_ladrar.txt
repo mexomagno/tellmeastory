@@ -1,0 +1,6 @@
+title:Cuento default
+----
+Erase una vez un cuento por default.
+El cuento por default no servía para nada más que para testear una aplicación.
+El pobre cuento quería ser más que eso, pero su contexto no se lo permitía.
+Un día, no encontró nada mejor que
