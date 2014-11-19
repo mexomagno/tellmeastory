@@ -19,9 +19,9 @@
 -->
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@drawable/caracol"
+    android:background="@drawable/frutilla"
     android:padding="20dp"
     android:gravity="center|top"
     android:orientation="vertical">
@@ -43,14 +43,18 @@
         android:id="@+id/titulo_menu_cuentos"
         android:padding= "@dimen/menu_title_padding"
         android:editable="false"
-        android:background="#d0ffffff" />
+        android:background="@drawable/round_corners"
+        android:textSize="60dp" />
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:id="@+id/lista_libros"
         android:layout_gravity="center_horizontal"
-        android:background="#c0ffffff"
-        android:layout_marginTop="20dp" />
+        android:background="@drawable/round_corners"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:textSize="30dp"/>
 
 </LinearLayout>

@@ -5,5 +5,5 @@
     <dimen name="tabla_libros_vertical_padding">5dp</dimen>
     <dimen name="tabla_libros_horizontal_padding">5dp</dimen>
     <dimen name="menu_title_padding">20dp</dimen>
-    <dimen name="boton_chico">40dp</dimen>
+    <dimen name="boton_chico">80dp</dimen>
 </resources>

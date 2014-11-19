@@ -4,8 +4,8 @@
     android:keepScreenOn="true"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:background="@drawable/pescao"
-    android:padding="20dp"
+    android:background="@drawable/fondo_welcome"
+    android:padding="80dp"
     android:gravity="center_horizontal">
     <LinearLayout
         android:orientation="horizontal"
@@ -24,9 +24,9 @@
         android:id="@+id/nombre_app"
         android:padding= "@dimen/menu_title_padding"
         android:editable="false"
-        android:background="#d0A9F5F2"
+        android:background="#11A9F5F2"
         android:layout_marginBottom="50dp"
-        android:textSize="50dp"
+        android:textSize="80dp"
         android:textStyle="bold"
         android:textColor="#440044"
         android:layout_gravity="center"
@@ -34,12 +34,16 @@
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="140dp"
         android:text="@string/boton_welcome_string"
         android:id="@+id/boton_ver_libros"
         android:layout_gravity="center_horizontal"
         android:clickable="true"
-        android:onClick="accionBoton"/>
+        android:onClick="accionBoton"
+        android:background="@drawable/round_button"
+        android:padding="40dp"
+        android:textSize="50dp"
+        android:textColor="#FFFFFFFF" />
 
 
 </LinearLayout>

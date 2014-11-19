@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Tell me a story</string>
-    <string name="action_settings">Juega bonito, Cid</string>
+    <string name="app_name">Cuéntame un cuento</string>
+    <string name="action_settings">Opciones</string>
     <string name="title_activity_welcome">welcome</string>
-    <string name="boton_welcome_string">Ver tus cuentos</string>
+    <string name="boton_welcome_string">Empezar</string>
     <string name="menu_title_string">Elige tu cuento</string>
     <string name="title_activity_titulo_cuento">TituloCuento</string>
     <string name="hello_world">Hello world!</string>
