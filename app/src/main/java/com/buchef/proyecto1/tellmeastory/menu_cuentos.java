@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +18,7 @@ import android.widget.ListView;                             //para obtener el Li
 import android.widget.ArrayAdapter;                         //para usar el ArrayAdapter
 import android.widget.AdapterView.OnItemClickListener;      //para usar OnItemClickListener
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -42,6 +44,9 @@ public class menu_cuentos extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_cuentos);
+        TextView txt = (TextView) findViewById(R.id.titulo_menu_cuentos);
+        Typeface font = Typeface.createFromAsset(getAssets(), "Chantelli_Antiqua.ttf");
+        txt.setTypeface(font);
         Log.d(msg, "menu_cuentos onCreate"); // DEBUG
         continueMusic = true;
         //obtener objeto boton desd el xml

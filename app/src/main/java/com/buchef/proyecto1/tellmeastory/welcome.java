@@ -2,6 +2,7 @@ package com.buchef.proyecto1.tellmeastory;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
+import android.widget.TextView;
 
 public class welcome extends ActionBarActivity {
     boolean music_on;
@@ -27,6 +29,9 @@ public class welcome extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+        TextView txt = (TextView) findViewById(R.id.nombre_app);
+        Typeface font = Typeface.createFromAsset(getAssets(), "Chantelli_Antiqua.ttf");
+        txt.setTypeface(font);
         Log.d(msg, "welcome onCreate"); // DEBUG
         configs = getSharedPreferences(CONFIGS, Context.MODE_PRIVATE);
         continueMusic = true;

@@ -4,8 +4,8 @@
     <string name="app_name">Cuéntame un cuento</string>
     <string name="action_settings">Opciones</string>
     <string name="title_activity_welcome">welcome</string>
-    <string name="boton_welcome_string">Empezar</string>
-    <string name="menu_title_string">Elige tu cuento</string>
+    <string name="boton_welcome_string">¡Empezar!</string>
+    <string name="menu_title_string">Mis cuentos</string>
     <string name="title_activity_titulo_cuento">TituloCuento</string>
     <string name="hello_world">Hello world!</string>
     <string name="nombre_cuento1">Cuento 1</string>
