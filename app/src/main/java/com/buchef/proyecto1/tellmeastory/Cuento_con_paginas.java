@@ -10,6 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -167,5 +168,18 @@ public class Cuento_con_paginas extends FragmentActivity {
         if (sonido_on){
             MusicManager.start(this, MusicManager.MUSIC_GAME);
         }
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event){
+        boolean retorno = super.onKeyDown(keyCode, event);
+        if (keyCode == KeyEvent.KEYCODE_BACK){
+            continueMusic = true;
+        }
+        return retorno;
+    }
+    @Override
+    public void onDestroy(){
+        PagFragment.mp.stop();
+        super.onDestroy();
     }
 }

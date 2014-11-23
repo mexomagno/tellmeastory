@@ -222,7 +222,7 @@ public class menu_cuentos extends Activity {
     protected void onPause() {
         super.onPause();
         if (!continueMusic) {
-            MusicManager.release();
+            MusicManager.pause();
         }
         Log.d(msg, "menu_cuentos onPause"); // DEBUG
         
