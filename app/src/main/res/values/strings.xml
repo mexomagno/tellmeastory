@@ -18,5 +18,6 @@
     <string name="cuento3">Jarri Weasley</string>
     <string name="cuento4">El patito fabuloso</string>
     <string name="title_activity_cuento_con_paginas">Cuento_con_paginas</string>
+    <string name="title_activity_portada_cuentos">portada_cuentos</string>
 
 </resources>

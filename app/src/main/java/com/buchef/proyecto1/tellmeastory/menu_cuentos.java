@@ -30,7 +30,7 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Field;
 import java.util.Scanner;
 
-
+/* Desde este activity se va a PORTADA_CUENTO */
 public class menu_cuentos extends Activity {
     ListView lista_cuentos;
     boolean sonido_on; //false si esta en esta en silencio
@@ -97,7 +97,7 @@ public class menu_cuentos extends Activity {
                 String nombre_item = (String) lista_cuentos.getItemAtPosition(position);
                 //mostrar una alerta
                 //Toast.makeText(getApplicationContext(),"Posicion: "+pos_item+", Item: " + valor_item, Toast.LENGTH_LONG).show();
-                Intent myIntent = new Intent(getApplicationContext(),Cuento_con_paginas.class);
+                Intent myIntent = new Intent(getApplicationContext(),portada_cuentos.class);
                 //Añadir parametros al activity, es decir, añadir nombre del cuento.
                 String nom_archivo = nombre_archivos[getIndexOfStringArray(nombre_cuentos,nombre_item)];
                 myIntent.putExtra("archivo",nom_archivo);

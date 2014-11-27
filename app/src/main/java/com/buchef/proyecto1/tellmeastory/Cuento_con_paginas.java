@@ -31,8 +31,10 @@ public class Cuento_con_paginas extends FragmentActivity {
     boolean continueMusic;
     Button sonido;
     SharedPreferences configs;
+    //establece si se quiere lectura con voz o no
+    boolean voz_on;
     //Información del cuento
-    private static String titulo;
+    //private static String titulo;
     private static String archivo;
     private int n_paginas;
     private PagerAdapter mPagerAdapter;
@@ -45,7 +47,8 @@ public class Cuento_con_paginas extends FragmentActivity {
         super.setContentView(R.layout.activity_cuento_con_paginas);
         //obtener titulo del cuento
         archivo=getIntent().getStringExtra("archivo");
-        titulo=obtenerTituloDesdeArchivo(archivo);
+        voz_on=getIntent().getBooleanExtra("voz_on", true);
+        //titulo=obtenerTituloDesdeArchivo(archivo);
         //obtener cuenta de paginas del cuento
         n_paginas = obtenerNumeroPaginas(archivo);
         //inicializar fragments, páginas del cuento

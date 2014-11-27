@@ -6,12 +6,11 @@
         android:allowBackup="true"
         android:icon="@drawable/tigrecillo"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".welcome"
             android:label="@string/app_name"
-            android:screenOrientation="landscape">
-
+            android:screenOrientation="landscape" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,7 +20,7 @@
         <activity
             android:name=".menu_cuentos"
             android:label="@string/title_activity_welcome"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".TituloCuento"
@@ -31,6 +30,10 @@
         <activity
             android:name=".Cuento_con_paginas"
             android:label="@string/title_activity_cuento_con_paginas" >
+        </activity>
+        <activity
+            android:name=".portada_cuentos"
+            android:label="@string/title_activity_portada_cuentos" >
         </activity>
     </application>
 

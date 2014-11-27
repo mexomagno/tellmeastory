@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.content.Intent;
 import android.widget.TextView;
 
+/* Desde este activity se va a MENU_CUENTOS  */
 public class welcome extends ActionBarActivity {
     boolean music_on;
     boolean continueMusic;
