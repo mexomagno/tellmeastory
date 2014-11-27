@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -81,7 +82,7 @@ public class TituloCuento extends FragmentActivity {
     protected void onPause() {
         super.onPause();
         if (!continueMusic) {
-            MusicManager.release();
+            MusicManager.pause();
         }
     }
     @Override
@@ -97,5 +98,13 @@ public class TituloCuento extends FragmentActivity {
             sonido.setBackgroundResource(R.drawable.sonido);
             MusicManager.start(this, MusicManager.MUSIC_GAME);
         }
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event){
+        boolean retorno = super.onKeyDown(keyCode, event);
+        if (keyCode == KeyEvent.KEYCODE_BACK){
+            continueMusic = true;
+        }
+        return retorno;
     }
 }
