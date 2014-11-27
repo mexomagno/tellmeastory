@@ -1,6 +1,7 @@
 package com.buchef.proyecto1.tellmeastory;
 
 import android.content.res.Resources;
+import android.graphics.Typeface;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
@@ -12,6 +13,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -33,7 +35,6 @@ public class PagFragment extends Fragment {
     * Si el index es 0, se está en la página principal del libro (la que
     * ofrece si quieres leer o escuchar el libro).*/
     public static MediaPlayer mp;
-    public static SoundPool pool = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
     public static PagFragment newInstance(int index){
         PagFragment f = new PagFragment();
         //Guardar valor de la página
@@ -61,10 +62,17 @@ public class PagFragment extends Fragment {
             //titulo se saca de los Extras del activiti padre de los fragments
             String titulo_cuento = getActivity().getIntent().getStringExtra("titulo");
             label_titulo.setText("Titulo del cuento: " + titulo_cuento);
+            Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "Chantelli_Antiqua.ttf");
+            label_titulo.setTypeface(font);
             layout_pagina.addView(label_titulo);
         }
         else {
+
             layout_pagina= (LinearLayout) inflater.inflate(R.layout.cuento_pagina, container, false);
+            // AGREGAR SET IMAGEN ACA
+            ImageView imagen_pagina = (ImageView) inflater.inflate(R.layout.cuento_imagen, container, false);
+            imagen_pagina.setBackgroundResource(getImageResourceId(nro_pagina));
+            layout_pagina.addView(imagen_pagina);
             TextView label_pagina = (TextView) inflater.inflate(R.layout.cuento_pagina_texto,container, false);
             label_pagina.setText(obtenerPaginaN(nro_pagina));
             layout_pagina.addView(label_pagina);
@@ -122,7 +130,19 @@ public class PagFragment extends Fragment {
         int[] lista_ids = {R.raw.a0, R.raw.a1, R.raw.a2, R.raw.a3,
                            R.raw.a4, R.raw.a5, R.raw.a6, R.raw.a7,
                            R.raw.a8, R.raw.a9, R.raw.a10, R.raw.a11,
-                           R.raw.a12, R.raw.a13};
+                           R.raw.a12, R.raw.a13, R.raw.a14};
+        try {
+            return lista_ids[nro_pagina];
+        }catch (Exception ArrayIndexOutOfBoundsException){
+            Log.d("ERROR", "Nro de pagina no valido");
+            return 0;
+        }
+    }
+    public int getImageResourceId(int nro_pagina){
+        int[] lista_ids = {R.drawable.hada1, R.drawable.balcon1, R.drawable.casa1, R.drawable.casa1,
+                R.drawable.nina1, R.drawable.hada2, R.drawable.hada1, R.drawable.hada1,
+                R.drawable.pescao, R.drawable.hada1, R.drawable.hada1, R.drawable.hada1,
+                R.drawable.hada1, R.drawable.hada1, R.drawable.hada1};
         try {
             return lista_ids[nro_pagina];
         }catch (Exception ArrayIndexOutOfBoundsException){
@@ -150,13 +170,7 @@ public class PagFragment extends Fragment {
                 if (getSoundResourceId(nro_pagina) != 0) {
                     mp = MediaPlayer.create(getActivity().getApplicationContext(), getSoundResourceId(nro_pagina));
                     mp.start();
-                    /*
-                    int id_audio = pool.load(getActivity().getApplicationContext(), getSoundResourceId(nro_pagina), 1);
-                    int streamID;
-                    do{
-                        streamID = pool.play(id_audio, 1, 1, 1, 0, 1);
-                    }while(streamID == 0);
-                    Log.d("Reproduciendo", "Audio de pagina" + nro_pagina);*/
+                    Log.d("Reproduciendo", "Audio de pagina" + nro_pagina);
                 }
             }
         }

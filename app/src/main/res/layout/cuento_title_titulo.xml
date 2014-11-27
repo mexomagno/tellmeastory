@@ -6,4 +6,5 @@
     android:layout_height="wrap_content"
     android:textAppearance="?android:attr/textAppearanceLarge"
     android:id="@+id/label_title"
-    android:layout_gravity="center" />
+    android:layout_gravity="center"
+    android:textSize="50dp"/>
