@@ -153,7 +153,8 @@ public class PagFragment extends Fragment {
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-
+        Log.d("Orden", "PagFragment");
+        boolean voz_on = Cuento_con_paginas.voz_on;
         // Make sure that we are currently visible
         if (this.isVisible()) {
             // If we are becoming invisible, then...
@@ -168,9 +169,11 @@ public class PagFragment extends Fragment {
             else {
                 int nro_pagina = getArguments().getInt("pagina",0);
                 if (getSoundResourceId(nro_pagina) != 0) {
-                    mp = MediaPlayer.create(getActivity().getApplicationContext(), getSoundResourceId(nro_pagina));
-                    mp.start();
-                    Log.d("Reproduciendo", "Audio de pagina" + nro_pagina);
+                    if (voz_on) {
+                        mp = MediaPlayer.create(getActivity().getApplicationContext(), getSoundResourceId(nro_pagina));
+                        mp.start();
+                        Log.d("Reproduciendo", "Audio de pagina" + nro_pagina);
+                    }
                 }
             }
         }

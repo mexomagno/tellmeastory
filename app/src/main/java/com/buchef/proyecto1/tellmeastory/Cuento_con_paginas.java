@@ -3,6 +3,7 @@ package com.buchef.proyecto1.tellmeastory;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.media.MediaPlayer;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
@@ -33,7 +34,7 @@ public class Cuento_con_paginas extends FragmentActivity {
     Button sonido;
     SharedPreferences configs;
     //establece si se quiere lectura con voz o no
-    boolean voz_on;
+    public static boolean voz_on;
     //Información del cuento
     private static String titulo;
     private static String archivo;
@@ -47,9 +48,10 @@ public class Cuento_con_paginas extends FragmentActivity {
         //Este layout debiera depender del título del cuento
         super.setContentView(R.layout.activity_cuento_con_paginas);
         //obtener titulo del cuento
+        Log.d("Orden", "Cuento");
+        voz_on = getIntent().getBooleanExtra("voces_on", true);
         archivo=getIntent().getStringExtra("archivo");
         Log.d("Cuentos: ", "Activity Cuento_con_paginas recibe texto archivo="+archivo);
-        voz_on=getIntent().getBooleanExtra("voces_on", true);
         titulo=obtenerTituloDesdeArchivo(archivo);
         Log.d("Cuentos: ", "Activity Cuento_con_paginas tiene titulo="+titulo);
         //obtener cuenta de paginas del cuento
@@ -84,6 +86,10 @@ public class Cuento_con_paginas extends FragmentActivity {
                 }
             }
         });
+        if (voz_on){
+            MediaPlayer mp = MediaPlayer.create(this, R.raw.a0);
+            mp.start();
+        }
     }
     private String obtenerTituloDesdeArchivo(String archivo){
         final Resources res = getResources();
