@@ -24,6 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Escuchar"
+        android:onClick="accionBotonEscuchar"
         android:id="@+id/boton_escuchar"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
@@ -32,6 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Leer tú mismo"
+        android:onClick="accionBotonLeertumismo"
         android:id="@+id/boton_leertumismo"
         android:layout_below="@+id/boton_escuchar"
         android:layout_centerHorizontal="true" />
@@ -41,7 +43,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
         android:src="@drawable/oreja"
-        android:onClick="accionBotonEscuchar"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/boton_escuchar"
         android:layout_toEndOf="@+id/boton_escuchar" />
@@ -51,7 +52,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageView3"
         android:src="@drawable/ojo"
-        android:onClick="accionBotonLeertumismo"
         android:layout_alignTop="@+id/boton_leertumismo"
         android:layout_toRightOf="@+id/boton_escuchar"
         android:layout_toEndOf="@+id/boton_escuchar" />

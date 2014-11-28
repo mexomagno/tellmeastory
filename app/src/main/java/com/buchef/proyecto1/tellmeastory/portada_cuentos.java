@@ -11,7 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-
+/* desde este activity se va a CUENTO_CON_PAGINAS */
 
 public class portada_cuentos extends ActionBarActivity {
     //private static String titulo;
@@ -19,12 +19,13 @@ public class portada_cuentos extends ActionBarActivity {
     boolean continueMusic;
     SharedPreferences configs;
     Button sonido;
-    private static String archivo;
+    public static String archivo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_portada_cuentos);
         archivo=getIntent().getStringExtra("archivo");
+        Log.d("Cuentos: ", "Activity portada_cuentos recibe archivo="+archivo);
         continueMusic = false;
         //Crear boton
         sonido = (Button) findViewById(R.id.bSonido);
@@ -80,12 +81,14 @@ public class portada_cuentos extends ActionBarActivity {
         Intent myIntent = new Intent(portada_cuentos.this,Cuento_con_paginas.class);
         myIntent.putExtra("voces_on",true);
         myIntent.putExtra("archivo",archivo);
+        Log.d("Cuentos: ", "Activity portada_cuentos pasa a Cuento_con_paginas texto archivo="+archivo);
         portada_cuentos.this.startActivity(myIntent);
     }
     public void accionBotonLeertumismo(View view){
         Intent myIntent = new Intent(portada_cuentos.this,Cuento_con_paginas.class);
         myIntent.putExtra("voces_on",false);
         myIntent.putExtra("archivo",archivo);
+        Log.d("Cuentos: ", "Activity portada_cuentos pasa a Cuento_con_paginas texto archivo="+archivo);
         portada_cuentos.this.startActivity(myIntent);
     }
     @Override

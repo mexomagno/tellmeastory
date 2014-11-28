@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Vector;
 
-
+/* Este activity genera fragments de la clase PagFragment */
 public class Cuento_con_paginas extends FragmentActivity {
     //****Variables internas
     //manejo de sonidos y música
@@ -48,6 +48,8 @@ public class Cuento_con_paginas extends FragmentActivity {
         super.setContentView(R.layout.activity_cuento_con_paginas);
         //obtener titulo del cuento
         archivo=getIntent().getStringExtra("archivo");
+        Log.d("Cuentos: ", "Activity Cuento_con_paginas recibe texto archivo="+archivo);
+
         voz_on=getIntent().getBooleanExtra("voz_on", true);
         //titulo=obtenerTituloDesdeArchivo(archivo);
         //obtener cuenta de paginas del cuento
