@@ -59,7 +59,7 @@ public class PagFragment extends Fragment {
         if (nro_pagina == 0){
             layout_pagina= (LinearLayout) inflater.inflate(R.layout.cuento_title, container, false);
             TextView label_titulo = (TextView)inflater.inflate(R.layout.cuento_title_titulo,container, false);
-            //titulo se saca de los Extras del activiti padre de los fragments
+            //titulo se saca de los Extras del activity padre de los fragments
             String titulo_cuento = getActivity().getIntent().getStringExtra("titulo");
             label_titulo.setText("Titulo del cuento: " + titulo_cuento);
             Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "Chantelli_Antiqua.ttf");
