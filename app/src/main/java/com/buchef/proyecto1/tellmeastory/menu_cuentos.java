@@ -101,7 +101,7 @@ public class menu_cuentos extends Activity {
                 String nom_archivo = nombre_archivos[getIndexOfStringArray(nombre_cuentos,nombre_item)];
                 myIntent.putExtra("archivo",nom_archivo);
                 myIntent.putExtra("titulo",nombre_item);
-                Log.d("Cuentos: ", "Activity menu_cuentos pasa a portada_cuentos texto 'archivo'="+nom_archivo);
+                //Log.d("Cuentos: ", "Activity menu_cuentos pasa a portada_cuentos texto 'archivo'="+nom_archivo);
                 menu_cuentos.this.startActivity(myIntent);
             }
         });
