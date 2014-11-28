@@ -182,7 +182,12 @@ public class Cuento_con_paginas extends FragmentActivity {
     }
     @Override
     public void onDestroy(){
-        PagFragment.mp.stop();
+        try {
+            PagFragment.mp.stop();
+        }catch (NullPointerException e){
+            Log.d("Error", "Null Pointer");
+        }
+
         super.onDestroy();
     }
 }

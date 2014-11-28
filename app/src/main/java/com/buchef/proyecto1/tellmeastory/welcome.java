@@ -33,7 +33,6 @@ public class welcome extends ActionBarActivity {
         TextView txt = (TextView) findViewById(R.id.nombre_app);
         Typeface font = Typeface.createFromAsset(getAssets(), "Chantelli_Antiqua.ttf");
         txt.setTypeface(font);
-        Log.d(msg, "welcome onCreate"); // DEBUG
         configs = getSharedPreferences(CONFIGS, Context.MODE_PRIVATE);
         continueMusic = true;
 
@@ -41,7 +40,6 @@ public class welcome extends ActionBarActivity {
     @Override
     protected void onStart(){
         super.onStart();
-        Log.d(msg, "welcome onStart"); // DEBUG
     }
     @Override
     protected void onResume(){
@@ -52,7 +50,6 @@ public class welcome extends ActionBarActivity {
             MusicManager.start(this, MusicManager.MUSIC_MENU);
             Log.d(msg, "Music on status: " + music_on); // DEBUG
         }
-        Log.d(msg, "welcome onResume"); // DEBUG
     }
     @Override
     protected void onPause(){
@@ -60,17 +57,6 @@ public class welcome extends ActionBarActivity {
         if (!continueMusic) {
             MusicManager.pause();
         }
-        Log.d(msg, "welcome onPause"); // DEBUG
-    }
-    @Override
-    protected void onStop(){
-        super.onStop();
-        Log.d(msg, "welcome onStop"); // DEBUG
-    }
-    @Override
-    public void onDestroy(){
-        super.onDestroy();
-        Log.d(msg, "welcome onDestroy"); // DEBUG
     }
 
     public void accionBoton(View view){

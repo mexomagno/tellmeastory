@@ -88,7 +88,7 @@ public class TituloCuento extends FragmentActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        continueMusic = false;
+        continueMusic = true;
         configs = getSharedPreferences(welcome.CONFIGS, Context.MODE_PRIVATE);
         sonido_on = configs.getBoolean(welcome.MusicOn, true);
         if (!sonido_on){

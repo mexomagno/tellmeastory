@@ -47,7 +47,6 @@ public class menu_cuentos extends Activity {
         TextView txt = (TextView) findViewById(R.id.titulo_menu_cuentos);
         Typeface font = Typeface.createFromAsset(getAssets(), "Chantelli_Antiqua.ttf");
         txt.setTypeface(font);
-        Log.d(msg, "menu_cuentos onCreate"); // DEBUG
         continueMusic = true;
         //obtener objeto boton desd el xml
         sonido = (Button) findViewById(R.id.bSonido);
@@ -198,11 +197,6 @@ public class menu_cuentos extends Activity {
     }
 
     @Override
-    protected void onStart(){
-        super.onStart();
-        Log.d(msg, "menu_cuentos onStart"); // DEBUG
-    }
-    @Override
     protected void onResume(){
         super.onResume();
         continueMusic = false;
@@ -214,9 +208,9 @@ public class menu_cuentos extends Activity {
         }
         if (sonido_on) {
             sonido.setBackgroundResource(R.drawable.sonido);
-            MusicManager.start(this, MusicManager.MUSIC_MENU);
+            MusicManager.start(this, MusicManager.MUSIC_MENU, true);
+            Log.d("MUSICA", "MUSICA ACTUAL MENU");
         }
-        Log.d(msg, "menu_cuentos onResume"); // DEBUG
     }
     @Override
     protected void onPause() {
@@ -224,17 +218,5 @@ public class menu_cuentos extends Activity {
         if (!continueMusic) {
             MusicManager.pause();
         }
-        Log.d(msg, "menu_cuentos onPause"); // DEBUG
-        
-    }
-    @Override
-    protected void onStop(){
-        super.onStop();
-        Log.d(msg, "menu_cuentos onStop"); // DEBUG
-    }
-    @Override
-    public void onDestroy(){
-        super.onDestroy();
-        Log.d(msg, "menu_cuentos onDestroy"); // DEBUG
     }
 }

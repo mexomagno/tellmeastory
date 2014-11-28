@@ -52,7 +52,7 @@ public class MusicManager {
                 previousMusic = currentMusic;
                 Log.d(TAG, "Previous music was [" + previousMusic + "]");
 // playing some other music, pause it and change
-                pause();
+                release();
             }
             currentMusic = music;
             Log.d(TAG, "Current music is now [" + currentMusic + "]");
@@ -97,7 +97,7 @@ public class MusicManager {
                     p.pause();
                 }
             }
-// previousMusic should always be something valid
+            // previousMusic should always be something valid
             if (currentMusic != -1) {
                 previousMusic = currentMusic;
                 Log.d(TAG, "Previous music was [" + previousMusic + "]");

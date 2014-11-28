@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,7 +25,7 @@ public class portada_cuentos extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_portada_cuentos);
         archivo=getIntent().getStringExtra("archivo");
-        continueMusic = true;
+        continueMusic = false;
         //Crear boton
         sonido = (Button) findViewById(R.id.bSonido);
         sonido.setOnClickListener(new View.OnClickListener() {
@@ -92,6 +93,7 @@ public class portada_cuentos extends ActionBarActivity {
         super.onPause();
         if (!continueMusic) {
             MusicManager.pause();
+            Log.d("MUSICA", "PAUSANDO MUSICA ACTUAL");
         }
     }
     @Override
